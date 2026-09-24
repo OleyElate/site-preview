@@ -1,0 +1,10 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Live loader test</title>
+<pre id="out">loading...</pre>
+<script>
+fetch('https://raw.githubusercontent.com/OleyElate/site-preview/main/live-test.txt?cb='+Date.now(), {cache:'no-store'})
+  .then(r=>{if(!r.ok) throw new Error('HTTP '+r.status); return r.text();})
+  .then(t=>document.getElementById('out').textContent=t)
+  .catch(e=>document.getElementById('out').textContent='ERROR: '+e.message);
+</script>
